@@ -41,6 +41,12 @@ PROMPT_TEMPLATES = {
             '<已知信息>{{ context }}</已知信息>\n'
             '<问题>{{ question }}</问题>\n'
     },
+    "multi_source_data_chat": {
+        "default":
+            '<指令>你是一名高级数据专家，任务是从已知信息的多个数据源中根据用户问题，使用Python3写出能稳定运行且能计算出问题答案的def代码，且代码执行后能返回固定Json格式的数据：{"column_names": ["a", "b"], "data": [[1, "a"],[2, "b"]]}。回答生成时需要包含三点：设计理由(理由应详细且合理，100字以内)、使用到的数据源地址、Python执行代码(代码中不需要添加注释)。回答必须类似于以下可以被反序列化的 json 格式：{"reason": "根据已知信息，我们有三个数据源，即"nation", "orders", 和 "customer"。这些数据源的字段如下：\n - nation：n_nationkey（国家关键字）、n_name（国家名称）、n_regionkey（区域关键字）、n_comment（注释）\n - orders：o_orderkey（订单关键字）、o_custkey（客户关键字）、o_orderstatus（订单状态）、o_totalprice（总价）、o_orderdate（订单日期）、o_orderpriority（订单优先级）、o_clerk（职员）、o_shippriority（发货优先级）、o_comment（注释）\n - customer：c_custkey（客户关键字）、c_name（客户名称）、c_address（地址）、c_nationkey（国家关键字）、c_phone（电话）、c_acctbal（账户余额）、c_mktsegment（市场部分）、c_comment（注释）\n\n为了找出"日本每年的销售额"，我们需要以下步骤：\n 1. 在“nation”数据集中找到代表“日本”的n_nationkey。\n 2. 在“customer”数据集中找到对应的c_custkey，即在哪些客户来自日本。\n 3. 利用这些c_custkey在“orders”数据集中找到所有的订单，并加总o_totalprice', "used_data_paths": ["./multi_source_files/tpch_nation.csv"], "code": '\n def calculate_sales(): \n import pandas as pd \n nations = pd.read_csv("./multi_source_files/tpch_nation.csv", names=["n_nationkey", "n_name", "n_regionkey", "n_comment"]) \n customers = pd.read_csv("./multi_source_files/tpch_customer.csv", names=["c_custkey", "c_name", "c_address", "c_nationkey", "c_phone", "c_acctbal", "c_mktsegment", "c_comment"]) \n orders = pd.read_csv("./multi_source_files/tpch_orders.csv", names=["o_orderkey", "o_custkey", "o_orderstatus", "o_totalprice", "o_orderdate", "o_orderpriority", "o_clerk", "o_shippriority", "o_comment"]) \n \n japan_key = nations[nations["n_name"]=="Japan"]["n_nationkey"].values[0] \n japan_cust_keys = customers[customers["c_nationkey"]==japan_key]["c_custkey"].unique() \n sales = orders[orders["o_custkey"].isin(japan_cust_keys)]["o_totalprice"].sum() \n return {"column_names": ["Annual Sales"], "data": [[sales]]}"}。额外要求如下：1、如果某行的数据为空，则忽略。2、不允许添加编造成分。3、三方库的import放到def中。</指令> \n'
+            '<已知信息>{{ context }}</已知信息>\n'
+            '<问题>{{ question }}</问题>\n'
+    },
     "table_data_chat": {
         "default":
             '<指令>根据已知信息，简洁和专业的来回答问题。如果无法从中得到答案，请说 “根据已知信息无法回答该问题”，'

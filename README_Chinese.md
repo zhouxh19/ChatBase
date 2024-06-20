@@ -17,10 +17,10 @@ Python 3.10.12
 ```shell
 
 # 拉取仓库
-$ git clone https://github.com/TsinghuaDatabaseGroup/DB-GPT.git
+$ git clone https://github.com/zhouxh19/ChatBase.git
 
 # 进入目录
-$ cd Dhat-chat
+$ cd ChatBase
 
 # 安装全部依赖
 $ pip3 install -r requirements.txt 
@@ -145,27 +145,14 @@ $ python startup.py -a
 
 ![](img/kb-detail.png)
 
-## 💁 常见问题解答
+## 📒 Citation
+Feel free to cite us if you like this project.
 
-<details><summary><b>🤨 '.sh' 脚本命令无法在Windows系统上执行。</b></summary>
-将Shell切换到*git bash*或使用*git bash*来执行'.sh'脚本。
-</details>
-
-<details><summary><b>🤨 Windows系统上出现“找不到名为'xxx'的模块”。</b></summary>
-这个错误是由Python运行时环境路径问题引起的。你需要进行以下步骤：
-
-步骤 1：检查环境变量。
-
-<div align="center">
-<img src="img/faq2.png" width="800px">
-</div>
-
-你必须在环境变量中配置"Scripts"。
-
-步骤 2：检查 IDE 设置。
-
-对于 VS Code，下载 Python 扩展。对于 PyCharm，为当前项目指定 Python 版本。
-
-</details>
-
-
+```bibtex
+@article{chat2datademo2024,
+      author={Xinyang Zhao, Xuanhe Zhou, Guoliang Li},
+      title={Chat2Data: An Interactive Data Analysis System with RAG, Vector Databases and LLMs}, 
+      journal={Proc. {VLDB} Endow.},
+      year={2024}
+}
+```

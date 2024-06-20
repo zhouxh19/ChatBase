@@ -23,7 +23,7 @@ import uvicorn
 import argparse
 from configs.server_config import OPEN_CROSS_DOMAIN
 from configs.model_config import NLTK_DATA_PATH
-from configs import VERSION
+# from configs import VERSION
 import nltk
 import sys
 import os
@@ -41,7 +41,7 @@ async def document():
 def create_app(run_mode: str = None):
     app = FastAPI(
         title="Datachat API Server",
-        version=VERSION
+        # version=VERSION
     )
     MakeFastAPIOffline(app)
     # Add CORS middleware to allow all origins

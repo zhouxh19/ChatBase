@@ -1,21 +1,58 @@
 # Byte-compiled / optimized / DLL files
+tree_of_thought/LLM/my_openai_0613.py
 __pycache__/
 *.py[cod]
 *$py.class
-
+monitoring_scripts/prometheus/core.py
+doc2knowledge/docs/overall_diagnosis_knowledge/raw/raw.txt
 # C extensions
 *.so
+.DS_Store
+.vscode/settings.json
+.idea
+
+openai_keys.txt
+others/customllm_test.py
+alert_results/2023*
+alert_results/logs
+alert_results/
+configs/*.py
+chromadb_search_results.txt
+knowledge_base/info.db
+diagnose_run_log.txt
+diagnose_run_pid.txt
+
+*/node_modules/
+*/.idea
+
+m3e-base/
+chroma_db/
+*/node_modules/
+
+*/.DS_Store
+*/dist
+# Editor directories and files
+*/.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+multiagents/localized_llms/sentence_embedding/
+
+doc2knowledge/docs/case_guide
+doc2knowledge/docs/overall_guide
+doc2knowledge/docs/private_docs
 
 # Distribution / packaging
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
@@ -54,6 +91,8 @@ cover/
 # Translations
 *.mo
 *.pot
+
+materials/videos
 
 # Django stuff:
 *.log
@@ -158,3 +197,12 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+tool_config.yaml
+chat_history.json
+openai_keys.txt
+others/customllm_test.py
+environment.yml
+workload_info.json
+workload_info.json
+
+.m3e-base/

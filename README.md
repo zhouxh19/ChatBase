@@ -83,7 +83,6 @@ Copy the configuration files and check each file's comments to modify them accor
 $ python copy_config_example.py
 # The generated configuration files are in the configs/ directory
 # basic_config.py is the basic configuration file and doesn't need to be modified.
-# diagnose_config.py is the diagnostic configuration file and needs to be modified according to your environment.
 # kb_config.py is the knowledge base configuration file, you can modify DEFAULT_VS_TYPE to specify the storage vector library of the knowledge base, and you can also modify the relevant paths.
 # model_config.py is the model configuration file, you can modify LLM_MODELS to specify the models used. The current model configuration is mainly for knowledge base search, diagnostic-related models have some hard coding in the code, and will be unified here later.
 # prompt_config.py is the prompt configuration file, mainly for LLM dialogue and knowledge base prompts.
@@ -122,7 +121,7 @@ Example of the startup interface
 
 If it starts successfully, you will see the following interface:
 
-1. RAG Dialogue Page
+1. RAG Dialogue  Page
 
 ![](img/k_chat.png)
 
@@ -154,3 +153,4 @@ If it starts successfully, you will see the following interface:
 
 - Data-Driven workflow orchestration
 
+- ES Service
