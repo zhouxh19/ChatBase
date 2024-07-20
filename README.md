@@ -154,3 +154,15 @@ If it starts successfully, you will see the following interface:
 - Data-Driven workflow orchestration
 
 - ES Service
+
+## 📒 Citation
+Feel free to cite us if you like this project.
+
+```bibtex
+@misc{zhao2024llmdbdemo,
+      title={Chat2Data: An Interactive Data Analysis System with RAG, Vector Databases and LLMs}, 
+      author={Xinyang Zhao, Xuanhe Zhou, Guoliang Li},
+      year={2024},
+      journal={Proc. {VLDB} Endow.},
+}
+```
